@@ -363,7 +363,7 @@ int main(int argc, const char* const argv[]) {
         if(!(forwardPressed || backwardPressed) && abs(mouseDirection.y) > 0.001f) {
             movement = -delta * mouseDirection.y * 1.75f;
         }
-        if(abs(movement) > 0.001f) {
+        if(abs(movement) > 0.00000001f) {
             // move only if the player does not collide with some wall
             if(map.at(int(pos.x + dir.x * movement), int(pos.y)) == 0)
                 pos.x += dir.x * movement;
@@ -386,7 +386,7 @@ int main(int argc, const char* const argv[]) {
         if(!(rotateRightPressed || rotateLeftPressed) && abs(mouseDirection.x) > 0.001f) {
             rotation = -mouseDirection.x * delta;
         }
-        if(abs(rotation) > 0.001f) {
+        if(abs(rotation) > 0.00000001f) {
             double oldDirX = dir.x;
             dir.x = dir.x * cos(rotation) - dir.y * sin(rotation);
             dir.y = oldDirX * sin(rotation) + dir.y * cos(rotation);
