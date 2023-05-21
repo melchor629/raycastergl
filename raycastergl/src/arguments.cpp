@@ -27,13 +27,14 @@ bool Arguments::parseArguments(int argc, const char* const argv[]) {
         .action([] (auto& vec, const std::string& value, Environment& env) {
             size_t xPos = value.find("x");
             size_t commaPos = value.find(",");
-            if(xPos == -1 && commaPos == -1) {
+            if(xPos == std::string::npos && commaPos == std::string::npos) {
                 env.add_error("Window size format is invalid: " + value);
                 return;
             }
 
-            auto widthString = value.substr(0, xPos != -1 ? xPos : commaPos);
-            auto heightString = value.substr((xPos != -1 ? xPos : commaPos) + 1);
+            auto p = xPos != std::string::npos ? xPos : commaPos;
+            auto widthString = value.substr(0, p);
+            auto heightString = value.substr(p + 1);
             vec.x = std::stoi(widthString);
             vec.y = std::stoi(heightString);
 

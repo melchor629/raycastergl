@@ -144,8 +144,7 @@ void Texture::bindImage(uint32_t index, uint32_t level, bool write, std::optiona
         checkGlError(glGenTextures(1, &texture));
     }
 
-    int f = 0;
-    checkGlError(f = glIsTexture(texture));
+    checkGlError(glIsTexture(texture));
     checkGlError(glBindImageTexture(
         index,
         texture,
