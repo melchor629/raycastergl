@@ -121,7 +121,7 @@ As mentioned several times, the textures are stored in a 2D Texture Array. This 
 | 9  | `pillar.png` | Sprite |
 | 10 | `greenlight.png` | Sprite |
 
-The repository does not have the textures, they must be downloaded from the [tutorial][the-tutorial], which has a download link almost at the end.
+The repository does not have the textures, they will be downloaded from the [tutorial][the-tutorial] during build from a download link almost at the end.
 
 ## How to build
 
