@@ -129,7 +129,7 @@ int main(int argc, const char* const argv[]) {
 
     // window icon :)
     GLFWimage icon;
-    icon.pixels = stbi_load("res/textures/eagle.png", &icon.width, &icon.height, nullptr, 4);
+    icon.pixels = stbi_load("pics/eagle.png", &icon.width, &icon.height, nullptr, 4);
     glfwSetWindowIcon(window, 1, &icon);
     free(icon.pixels);
 
@@ -445,18 +445,18 @@ static Texture generateTextures() {
     };
 
     stbiLoadStruct textures[] = {
-        stbiLoad("res/textures/eagle.png", 3),
-        stbiLoad("res/textures/redbrick.png", 3),
-        stbiLoad("res/textures/purplestone.png", 3),
-        stbiLoad("res/textures/greystone.png", 3),
-        stbiLoad("res/textures/bluestone.png", 3),
-        stbiLoad("res/textures/mossy.png", 3),
-        stbiLoad("res/textures/wood.png", 3),
-        stbiLoad("res/textures/colorstone.png", 3),
+        stbiLoad("pics/eagle.png", 3),
+        stbiLoad("pics/redbrick.png", 3),
+        stbiLoad("pics/purplestone.png", 3),
+        stbiLoad("pics/greystone.png", 3),
+        stbiLoad("pics/bluestone.png", 3),
+        stbiLoad("pics/mossy.png", 3),
+        stbiLoad("pics/wood.png", 3),
+        stbiLoad("pics/colorstone.png", 3),
 
-        stbiLoad("res/textures/barrel.png", 3),
-        stbiLoad("res/textures/pillar.png", 3),
-        stbiLoad("res/textures/greenlight.png", 3),
+        stbiLoad("pics/barrel.png", 3),
+        stbiLoad("pics/pillar.png", 3),
+        stbiLoad("pics/greenlight.png", 3),
     };
 
     Texture glTextures(Texture::Array2D);
