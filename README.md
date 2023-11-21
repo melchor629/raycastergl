@@ -172,6 +172,8 @@ cmake --build .
 
 > Please use 64-bit version for Windows instead of 32-bit. All code is tested under 64-bit and some nasty bug can appear when using 32-bit...
 
+> To debug in your local, change the **Working Directory** to `$(OutputPath)`.
+
 ### Manual installation of GLFW3 for Windows
 
 1. Go to [GLFW3][glfw] page and download the latest source code (or the latest of version 3)
