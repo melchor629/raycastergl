@@ -128,7 +128,7 @@ The repository does not have the textures, they must be downloaded from the [tut
 The project uses git submodules and [CMake][cmake]. To clone the repository use:
 
 ```sh
-git clone --recursive https://github.com/melchor629/raycastergl
+git clone https://github.com/melchor629/raycastergl
 ```
 
 The required external dependency is [GLFW][glfw]. On Linux, you can run:

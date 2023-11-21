@@ -1,7 +1,9 @@
-cmake_minimum_required(VERSION 3.12)
+cmake_minimum_required(VERSION 3.15)
 project(raycastergl)
 
 set(CMAKE_CXX_STANDARD 17)
+
+include(FetchContent)
 
 if(MSVC)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /W4")
@@ -12,18 +14,44 @@ else()
     endif()
 endif()
 
+option(BUILD_TESTING FALSE)
 option(YAML_CPP_BUILD_CONTRIB FALSE)
 option(YAML_CPP_BUILD_TESTS FALSE)
 option(YAML_CPP_BUILD_TOOLS FALSE)
 option(YAML_CPP_INSTALL FALSE)
 
-add_subdirectory(vendor/glad)
-add_subdirectory(vendor/yaml-cpp)
-add_subdirectory(vendor/glm)
+FetchContent_Declare(
+    argumentum
+    GIT_REPOSITORY  https://github.com/mmahnic/argumentum.git
+    GIT_TAG         v0.3.2
+    GIT_PROGRESS    TRUE
+)
+FetchContent_Declare(
+    glm
+    GIT_REPOSITORY  https://github.com/g-truc/glm.git
+    GIT_TAG         0.9.9.8
+    GIT_PROGRESS    TRUE
+)
+FetchContent_Declare(
+    yaml-cpp
+    GIT_REPOSITORY  https://github.com/jbeder/yaml-cpp.git
+    GIT_TAG         0.8.0
+    GIT_PROGRESS    TRUE
+)
+FetchContent_Declare(
+    stb
+    GIT_REPOSITORY  https://github.com/nothings/stb.git
+    GIT_TAG         03f50e343d796e492e6579a11143a085429d7f5d
+    GIT_PROGRESS    TRUE
+    CONFIGURE_COMMAND ""
+    BUILD_COMMAND   ""
+)
+FetchContent_MakeAvailable(argumentum glm yaml-cpp stb)
 
-include_directories(vendor/glad/include)
-include_directories(vendor/stb)
-include_directories(vendor/argumentum/include)
+add_subdirectory(vendor/glad)
+
+add_library(stb INTERFACE)
+target_include_directories(stb INTERFACE ${stb_SOURCE_DIR})
 
 find_package(glfw3 REQUIRED)
 
@@ -111,6 +139,8 @@ target_link_libraries(raycastergl
     yaml-cpp
     glm::glm
     glfw
+    stb
+    Argumentum::headers
 )
 
 add_custom_target(
