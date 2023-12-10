@@ -128,7 +128,7 @@ The repository does not have the textures, they must be downloaded from the [tut
 The project uses git submodules and [CMake][cmake]. To clone the repository use:
 
 ```sh
-git clone --recursive https://github.com/melchor629/raycastergl
+git clone https://github.com/melchor629/raycastergl
 ```
 
 The required external dependency is [GLFW][glfw]. On Linux, you can run:
@@ -171,6 +171,8 @@ cmake --build .
 ```
 
 > Please use 64-bit version for Windows instead of 32-bit. All code is tested under 64-bit and some nasty bug can appear when using 32-bit...
+
+> To debug in your local, change the **Working Directory** to `$(OutputPath)`.
 
 ### Manual installation of GLFW3 for Windows
 
